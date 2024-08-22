@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Coming Soon</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Whyte+Inktrap:wght@400;700&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
     <style>
         body, html {
             height: 100%;
@@ -12,14 +13,37 @@
             display: flex;
             justify-content: center;
             align-items: center;
+            flex-direction: column;
             font-family: 'Whyte Inktrap', sans-serif;
-            background-color: #0D0D0D; /* Background color set to #0D0D0D */
-            color: #FFFFFF; /* Text color set to #FFFFFF */
+            background-color: #0D0D0D;
+            color: #FFFFFF;
         }
         .message {
-            font-size: 80px; /* Font size set to 80 pixels */
-            font-weight: 700; /* Bold text */
+            font-size: 80px;
+            font-weight: 700;
             text-align: center;
+            margin-bottom: 20px;
+        }
+        .mail-button {
+            display: flex;
+            align-items: center;
+            padding: 10px 20px;
+            background-color: #FFFFFF;
+            color: #0D0D0D;
+            font-size: 24px;
+            font-weight: 700;
+            text-decoration: none;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .mail-button:hover {
+            background-color: #E0E0E0;
+        }
+        .mail-icon {
+            font-size: 28px;
+            margin-right: 10px;
         }
     </style>
 </head>
@@ -27,5 +51,9 @@
     <div class="message">
         I will be back soon
     </div>
+    <a href="mailto:contact@blakewonka.com" class="mail-button">
+        <span class="material-symbols-outlined mail-icon">mail</span>
+        Send Me Mail
+    </a>
 </body>
 </html>
