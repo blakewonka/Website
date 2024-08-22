@@ -4,8 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Coming Soon</title>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Whyte+Inktrap:wght@400;700&display=swap">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
     <style>
         body, html {
             height: 100%;
@@ -14,7 +12,7 @@
             justify-content: center;
             align-items: center;
             flex-direction: column;
-            font-family: 'Whyte Inktrap', sans-serif;
+            font-family: sans-serif; /* Use the device's default sans-serif font */
             background-color: #0D0D0D;
             color: #FFFFFF;
         }
@@ -22,28 +20,21 @@
             font-size: 80px;
             font-weight: 700;
             text-align: center;
-            margin-bottom: 20px;
+            margin-bottom: 40px; /* Increased margin to create more space */
         }
         .mail-button {
-            display: flex;
-            align-items: center;
-            padding: 10px 20px;
-            background-color: #FFFFFF;
-            color: #0D0D0D;
+            color: #FFFFFF;
             font-size: 24px;
             font-weight: 700;
-            text-decoration: none;
+            text-decoration: underline;
+            background: none;
             border: none;
-            border-radius: 5px;
             cursor: pointer;
-            transition: background-color 0.3s ease;
+            padding: 0;
+            transition: color 0.3s ease;
         }
         .mail-button:hover {
-            background-color: #E0E0E0;
-        }
-        .mail-icon {
-            font-size: 28px;
-            margin-right: 10px;
+            color: #E0E0E0;
         }
     </style>
 </head>
@@ -52,8 +43,7 @@
         I will be back soon
     </div>
     <a href="mailto:contact@blakewonka.com" class="mail-button">
-        <span class="material-symbols-outlined mail-icon">mail</span>
-        Send Me Mail
+        Send me a mail
     </a>
 </body>
 </html>
