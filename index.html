@@ -17,12 +17,14 @@
             font-family: 'Space Mono', monospace; /* Use Space Mono font */
             background-color: #0D0D0D;
             color: #FFFFFF;
+            text-align: center;
+            padding: 20px;
+            box-sizing: border-box;
         }
         .message {
-            font-size: 80px;
+            font-size: 56px;
             font-weight: 900; /* Maximum weight */
-            text-align: center;
-            margin-bottom: 40px; /* Increased margin to create more space */
+            margin-bottom: 40px;
         }
         .button {
             color: #FFFFFF;
@@ -38,6 +40,96 @@
         }
         .button:hover {
             color: #E0E0E0;
+        }
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .message {
+                font-size: 48px;
+            }
+            .button {
+                font-size: 14px;
+            }
+        }
+        @media (max-width: 480px) {
+            .message {
+                font-size: 36px;
+            }
+            .button {
+                font-size: 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="message">
+        Ravan Alasgarov
+    </div>
+    <a href="mailto:hello@blakewonka.com" class="button">
+        Contact with me
+    </a>
+    <a href="https://www.behance.net/blakewonka" class="button">
+        Portfolio
+    </a>
+</body>
+</html><!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coming Soon</title>
+    <!-- Google Fonts Link -->
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            font-family: 'Space Mono', monospace; /* Use Space Mono font */
+            background-color: #0D0D0D;
+            color: #FFFFFF;
+            text-align: center;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        .message {
+            font-size: 56px;
+            font-weight: 900; /* Maximum weight */
+            margin-bottom: 40px;
+        }
+        .button {
+            color: #FFFFFF;
+            font-size: 16px;
+            font-weight: 400; /* Regular weight */
+            text-decoration: underline;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0;
+            transition: color 0.3s ease;
+            margin-top: 18px; /* Space between buttons */
+        }
+        .button:hover {
+            color: #E0E0E0;
+        }
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .message {
+                font-size: 48px;
+            }
+            .button {
+                font-size: 14px;
+            }
+        }
+        @media (max-width: 480px) {
+            .message {
+                font-size: 36px;
+            }
+            .button {
+                font-size: 12px;
+            }
         }
     </style>
 </head>
