@@ -42,7 +42,6 @@ body {
   align-items: center;
   justify-content: space-between;
   padding: var(--space-4) var(--space-4) 0;
-  background-color: var(--color-bg);
 }
 
 .icon-btn {
@@ -250,17 +249,22 @@ body.menu-open .nav-menu .icon-x {
   min-width: 0;
 }
 
-/* Project card placeholder */
+/* Project card */
 .project-card {
-  background-color: var(--color-card);
-  opacity: 0.2;
+  position: relative;
+  overflow: hidden;
   display: block;
 }
 
-/* Mobile-only rows: hidden on tablet/desktop */
-.project-row--mobile-only {
-  display: none;
+.project-card img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  pointer-events: none;
 }
+
 
 /* ─── Menu overlay ───────────────────────────────────────── */
 .menu-overlay {
@@ -381,21 +385,12 @@ body.menu-open {
   transition: opacity 0.15s ease;
 }
 
-.theme-btn:hover svg {
-  opacity: 1;
-}
-
-.theme-btn:active svg {
+.menu-overlay__theme-switcher:hover .theme-btn svg {
   opacity: 1;
 }
 
 /* ─── Mobile ─────────────────────────────────────────────── */
 @media (max-width: 767px) {
-  /* Show mobile-only extra cards */
-  .project-row--mobile-only {
-    display: block;
-  }
-
   /* All rows become single column */
   .project-row--half {
     flex-direction: column;
