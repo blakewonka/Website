@@ -1,0 +1,404 @@
+/* ─── Reset ──────────────────────────────────────────────── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  height: 100%;
+}
+
+/* ─── Base ───────────────────────────────────────────────── */
+body {
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-display);
+  font-weight: var(--font-weight-regular);
+  -webkit-font-smoothing: antialiased;
+  min-height: 100vh;
+}
+
+/* ─── Page wrapper ───────────────────────────────────────── */
+.page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-section);
+  padding: var(--space-4);
+  /* nav clearance (40px + 16px top only) + 100px section gap */
+  padding-top: calc(var(--nav-btn-size) + var(--space-4) + var(--space-section));
+  width: 100%;
+}
+
+/* ─── Navigation bar ─────────────────────────────────────── */
+.nav-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 101;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-4) var(--space-4) 0;
+  background-color: var(--color-bg);
+}
+
+.icon-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: var(--nav-btn-size);
+  min-height: var(--nav-btn-size);
+  background: transparent;
+  border: none;
+  border-radius: 8px;
+  color: var(--color-text);
+  cursor: pointer;
+  padding: 0;
+  flex-shrink: 0;
+  transition: background-color 0.15s ease, opacity 0.15s ease;
+}
+
+.icon-btn:hover {
+  background-color: rgba(248, 249, 249, 0.08);
+}
+
+.icon-btn:active {
+  background-color: rgba(248, 249, 249, 0.16);
+}
+
+.icon-btn:disabled,
+.icon-btn[aria-disabled="true"] {
+  opacity: 0.3;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.icon-btn svg {
+  width: var(--nav-icon-size);
+  height: var(--nav-icon-size);
+  display: block;
+}
+
+/* Back button: hidden on home page */
+body[data-page="home"] .nav-back {
+  visibility: hidden;
+}
+
+/* "Menu" label: hidden by default, shown when overlay is open */
+.nav-menu-label {
+  font-family: var(--font-display);
+  font-weight: var(--font-weight-bold);
+  font-size: 33px;
+  color: var(--color-text);
+  display: none;
+  align-items: center;
+  min-height: var(--nav-btn-size);
+}
+
+/* X icon inside menu button: hidden by default */
+.nav-menu .icon-x {
+  display: none;
+}
+
+/* When menu is open: swap left content and right icon */
+body.menu-open .nav-back {
+  display: none;
+}
+body.menu-open .nav-menu-label {
+  display: flex;
+}
+body.menu-open .nav-menu .icon-hamburger {
+  display: none;
+}
+body.menu-open .nav-menu .icon-x {
+  display: block;
+}
+
+/* ─── Info block ─────────────────────────────────────────── */
+.info-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  text-align: center;
+  width: 100%;
+  max-width: 736px;
+  flex-shrink: 0;
+}
+
+@media (max-width: 767px) {
+  .info-block {
+    gap: 20px;
+  }
+}
+
+.info-name {
+  font-weight: var(--font-weight-bold);
+  font-size: var(--text-name);
+  line-height: 1;
+  width: 100%;
+}
+
+.info-subtitle {
+  font-size: var(--text-subtitle);
+  line-height: 1.2;
+  opacity: 0.8;
+  width: 100%;
+}
+
+/* ─── About button ───────────────────────────────────────── */
+.about-btn {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 8px 12px;
+  border-radius: 8px;
+  font-family: var(--font-display);
+  font-weight: var(--font-weight-regular);
+  font-size: 16px;
+  line-height: 1.2;
+  color: var(--color-text);
+  opacity: 0.8;
+  text-decoration: none;
+  background: transparent;
+  cursor: pointer;
+  transition: opacity 0.15s ease, background-color 0.15s ease, font-weight 0s;
+}
+
+.about-btn svg {
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+}
+
+.about-btn:hover {
+  opacity: 1;
+  font-weight: var(--font-weight-bold);
+  background-color: rgba(248, 249, 249, 0.08);
+}
+
+.about-btn:active {
+  opacity: 1;
+  font-weight: var(--font-weight-bold);
+  background-color: rgba(248, 249, 249, 0.16);
+}
+
+.about-btn:is([aria-disabled="true"], [disabled]) {
+  opacity: 0.3;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+@media (min-width: 768px) {
+  .about-btn {
+    font-size: 20px;
+  }
+}
+
+/* ─── About placeholder ─────────────────────────────────── */
+.about-placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 720px;
+  flex-shrink: 0;
+}
+
+.about-placeholder__text {
+  font-size: var(--text-subtitle);
+  line-height: 1.2;
+  opacity: 0.8;
+  text-align: center;
+  max-width: 736px;
+}
+
+/* ─── Project menu ───────────────────────────────────────── */
+.project-menu {
+  display: flex;
+  flex-direction: column;
+  gap: var(--card-gap);
+  width: 100%;
+  flex-shrink: 0;
+}
+
+.project-row {
+  width: 100%;
+}
+
+/* Full-width row */
+.project-row--full .project-card {
+  aspect-ratio: 1248 / 702;
+  width: 100%;
+}
+
+/* Two-column row */
+.project-row--half {
+  display: flex;
+  gap: var(--card-gap);
+}
+
+.project-row--half .project-card {
+  aspect-ratio: 619 / 702;
+  flex: 1 0 0;
+  min-width: 0;
+}
+
+/* Project card placeholder */
+.project-card {
+  background-color: var(--color-card);
+  opacity: 0.2;
+  display: block;
+}
+
+/* Mobile-only rows: hidden on tablet/desktop */
+.project-row--mobile-only {
+  display: none;
+}
+
+/* ─── Menu overlay ───────────────────────────────────────── */
+.menu-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  background-color: var(--color-bg);
+  display: flex;
+  flex-direction: column;
+  transform: translateY(-100%);
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform;
+  pointer-events: none;
+}
+
+.menu-overlay.is-open {
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+.menu-overlay__links {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  max-width: 736px;
+  width: 100%;
+  margin: 0 auto;
+  /* offset for fixed nav-bar */
+  padding-top: calc(var(--nav-btn-size) + var(--space-4));
+}
+
+.menu-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 48px;
+  min-width: 200px;
+  padding: 0 12px;
+  border-radius: 8px;
+  font-family: var(--font-display);
+  font-weight: var(--font-weight-regular);
+  font-size: 20px;
+  color: var(--color-text);
+  opacity: 0.8;
+  text-decoration: none;
+  white-space: nowrap;
+  background: transparent;
+  transition: opacity 0.15s ease, background-color 0.15s ease, font-weight 0s;
+}
+
+.menu-link:hover {
+  opacity: 1;
+  font-weight: var(--font-weight-bold);
+  background-color: rgba(248, 249, 249, 0.08);
+}
+
+.menu-link:active {
+  opacity: 1;
+  font-weight: var(--font-weight-bold);
+  background-color: rgba(248, 249, 249, 0.16);
+}
+
+.menu-link:is([aria-disabled="true"], [disabled]) {
+  opacity: 0.3;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+body.menu-open {
+  overflow: hidden;
+}
+
+.menu-overlay__divider {
+  width: 200px;
+  border: none;
+  border-top: 1px solid rgba(248, 249, 249, 0.2);
+  margin: 0;
+  flex-shrink: 0;
+}
+
+.menu-overlay__theme-switcher {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 4px;
+  border-radius: 12px;
+  background: rgba(58, 63, 65, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  flex-shrink: 0;
+}
+
+.theme-btn {
+  border-radius: 8px;
+  transition: background-color 0.15s ease;
+}
+
+.theme-btn svg {
+  opacity: 0.8;
+  transition: opacity 0.15s ease;
+}
+
+.theme-btn:hover svg {
+  opacity: 1;
+}
+
+.theme-btn:active svg {
+  opacity: 1;
+}
+
+.theme-btn[aria-pressed="true"] {
+  background-color: #303537;
+}
+
+.theme-btn[aria-pressed="true"]:hover {
+  background-color: #303537;
+}
+
+/* ─── Mobile ─────────────────────────────────────────────── */
+@media (max-width: 767px) {
+  /* Show mobile-only extra cards */
+  .project-row--mobile-only {
+    display: block;
+  }
+
+  /* All rows become single column */
+  .project-row--half {
+    flex-direction: column;
+  }
+
+  /* All cards stack with 3:4 ratio */
+  .project-card,
+  .project-row--full .project-card,
+  .project-row--half .project-card {
+    aspect-ratio: 3 / 4;
+    width: 100%;
+    flex: none;
+  }
+}
