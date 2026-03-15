@@ -36,3 +36,20 @@ overlay.addEventListener('click', (e) => {
 document.addEventListener('keydown', (e) => {
   if (e.key === 'Escape') closeMenu();
 });
+
+// Theme switcher — sliding indicator
+const themeSwitcher = document.querySelector('.menu-overlay__theme-switcher');
+if (themeSwitcher) {
+  const indicator = themeSwitcher.querySelector('.theme-switcher__indicator');
+  const themeBtns = themeSwitcher.querySelectorAll('.theme-btn');
+  // gap(8px) + button width(40px) = 48px per step
+  const step = 48;
+
+  themeBtns.forEach((btn, i) => {
+    btn.addEventListener('click', () => {
+      themeBtns.forEach((b) => b.setAttribute('aria-pressed', 'false'));
+      btn.setAttribute('aria-pressed', 'true');
+      indicator.style.transform = `translateX(${i * step}px)`;
+    });
+  });
+}
