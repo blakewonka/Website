@@ -4,6 +4,17 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Ravan Alasgarov — Design Engineer</title>
+<meta name="description" content="Design Engineer working on the Design System at Bir Ecosystem. Building tools for designers and developers.">
+<link rel="canonical" href="https://blakewonka.com/">
+<meta name="theme-color" content="#f7f7f7" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#131313" media="(prefers-color-scheme: dark)">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Ravan Alasgarov — Design Engineer">
+<meta property="og:description" content="Design Engineer working on the Design System at Bir Ecosystem.">
+<meta property="og:url" content="https://blakewonka.com/">
+<meta name="twitter:card" content="summary">
+<link rel="icon" href="/favicon.ico" sizes="32x32">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cstyle%3Ecircle%7Bfill:%231b1b1b%7D@media(prefers-color-scheme:dark)%7Bcircle%7Bfill:%23f7f7f7%7D%7D%3C/style%3E%3Ccircle cx='16' cy='16' r='13'/%3E%3C/svg%3E">
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-CHE44CLKPB"></script>
 <script>
@@ -14,7 +25,7 @@
 </script>
 <style>
 :root{--bg:#f7f7f7;--fg:#1b1b1b;--muted:rgba(27,27,27,.75);--hover:rgba(27,27,27,.03);--press:rgba(27,27,27,.06);color-scheme:light}
-html.dark{--bg:#131313;--fg:#f7f7f7;--muted:rgba(247,247,247,.75);--hover:rgba(247,247,247,.03);--press:rgba(247,247,247,.06);color-scheme:dark}
+@media (prefers-color-scheme:dark){:root{--bg:#131313;--fg:#f7f7f7;--muted:rgba(247,247,247,.75);--hover:rgba(247,247,247,.03);--press:rgba(247,247,247,.06);color-scheme:dark}}
 *{margin:0;box-sizing:border-box}
 html{background:var(--bg);min-height:100%}
 body{background:var(--bg);color:var(--muted);font:16px/1.5 -apple-system,"Segoe UI",Roboto,Inter,Helvetica,Arial,sans-serif;letter-spacing:-.24px;padding:120px 20px;display:flex;justify-content:center;min-height:100vh;transition:background .2s,color .2s}
@@ -24,17 +35,19 @@ p{font-weight:400}
 strong,h2{font-weight:500;color:var(--fg)}
 h2{font-size:16px}
 section{display:flex;flex-direction:column;gap:24px}
-.proj{display:flex;flex-direction:column;color:inherit;text-decoration:none;cursor:pointer;border-radius:16px;padding:8px 12px;margin:-8px -12px;transition:background-color .15s,transform .05s}
-.proj:hover{background:var(--hover)}
-.proj:active{background:var(--press);transform:scale(.98)}
+.proj{display:flex;flex-direction:column;border-radius:16px;padding:8px 12px;margin:-8px -12px}
 .proj p{color:var(--muted)}
+a.proj{color:inherit;text-decoration:none;transition:background-color .15s,transform .05s}
+a.proj:hover{background:var(--hover)}
+a.proj:active{background:var(--press);transform:scale(.98)}
 a{color:inherit;text-decoration:underline;text-decoration-skip-ink:none;text-underline-position:from-font}
 .chip{border-radius:6px;padding:2px 4px;margin:-2px -4px;transition:background-color .15s}
 .chip:hover{background:var(--hover)}
 .chip:active{background:var(--press)}
+a:focus-visible{outline:2px solid var(--fg);outline-offset:2px}
 </style>
-<script>(function(){var m=matchMedia('(prefers-color-scheme: dark)');function apply(){document.documentElement.classList.toggle('dark',m.matches)}apply();m.addEventListener('change',apply)})()</script>
-<script>document.addEventListener('touchstart',function(){},false)</script>
+<script>addEventListener('touchstart',function(){},{passive:true})</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Ravan Alasgarov","jobTitle":"Design Engineer","url":"https://blakewonka.com/","email":"contact@blakewonka.com","sameAs":["https://t.me/blakewonka"]}</script>
 </head>
 <body>
 <main>
@@ -44,19 +57,19 @@ a{color:inherit;text-decoration:underline;text-decoration-skip-ink:none;text-und
 </header>
 
 <section>
-<h2>Currenty</h2>
+<h2>Currently</h2>
 <p>I work on the Design System at Bir Ecosystem. I like to build things for designers and developers, think deeply about the user interface, how it looks, feels, behaves.</p>
-<p>Previously, I worked on the design system team at $KTON</p>
+<p>Previously, I worked on the design system team at $KTON.</p>
 </section>
 
 <section>
 <h2>Design projects</h2>
 <a class="proj" href="https://bir.az" target="_blank" rel="noopener"><strong>Bir Design System</strong><p>Bir Ecosystem's Design System.</p></a>
 <a class="proj" href="https://boosteroid.com/" target="_blank" rel="noopener"><strong>Boosteroid</strong><p>Cloud gaming platform.</p></a>
-<a class="proj" href="https://example.com" target="_blank" rel="noopener"><strong>$KTON</strong><p>Liquid staking protocol on TON ecosystem.</p></a>
-<a class="proj" href="https://example.com" target="_blank" rel="noopener"><strong>Taasbeeh</strong><p>A crypto wallet built on the TON ecosystem.</p></a>
-<a class="proj" href="https://example.com" target="_blank" rel="noopener"><strong>Burjua</strong><p>A loyalty app for VIP customers of an entertainment franchise.</p></a>
-<a class="proj" href="https://example.com" target="_blank" rel="noopener"><strong>Zantor</strong><p>A SaaS platform for a clothing manufacturer's franchise network.</p></a>
+<div class="proj"><strong>$KTON</strong><p>Liquid staking protocol on TON ecosystem.</p></div>
+<div class="proj"><strong>Taasbeeh</strong><p>A crypto wallet built on the TON ecosystem.</p></div>
+<div class="proj"><strong>Burjua</strong><p>A loyalty app for VIP customers of an entertainment franchise.</p></div>
+<div class="proj"><strong>Zantor</strong><p>A SaaS platform for a clothing manufacturer's franchise network.</p></div>
 </section>
 
 <section>
