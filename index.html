@@ -52,11 +52,22 @@ a:focus-visible{outline:2px solid var(--fg);outline-offset:2px}
 #intro.gone{display:none}
 html.js-intro body{overflow:hidden}
 html.js-intro.intro-done body{overflow:auto}
+html.intro-skip #intro{display:none}
 @media (prefers-reduced-motion:reduce){
   #intro,#intro svg{transition:none}
 }
 </style>
-<script>document.documentElement.classList.add('js-intro')</script>
+<script>
+(function(){
+  var COOLDOWN=30*60*1000;
+  var last=+localStorage.getItem('introShownAt')||0;
+  if(Date.now()-last<COOLDOWN){
+    document.documentElement.classList.add('intro-skip');
+  }else{
+    document.documentElement.classList.add('js-intro');
+  }
+})();
+</script>
 <script>addEventListener('touchstart',function(){},{passive:true})</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Ravan Alasgarov","jobTitle":"Design Engineer","url":"https://blakewonka.com/","email":"contact@blakewonka.com","sameAs":["https://t.me/blakewonka"]}</script>
 </head>
@@ -99,13 +110,17 @@ html.js-intro.intro-done body{overflow:auto}
 
 <section>
 <h2>Personal</h2>
-<a class="proj" href="#" target="_blank" rel="noopener"><strong>Project name</strong><p>Project description.</p></a>
-<div class="proj"><strong>Project name</strong><p>Project description.</p></div>
+<a class="proj" href="tools.html"><strong>Tools & Applications</strong><p>Specialized scripts, tools, and applications I've created</p></a>
+<a class="proj" href="wallpapers.html"><strong>Wallpapers & Images</strong><p>Images from around the world that I'd love to see and use</p></a>
+<a class="proj" href="about.html"><strong>About me</strong><p>Little things I have as a person and like to experience</p></a>
 </section>
 
 <section>
 <h2>More</h2>
+<div style="display:flex;flex-direction:column;gap:8px">
 <p>You can reach me via <a class="chip" href="https://t.me/blakewonka" target="_blank" rel="noopener">Telegram</a> or <a class="chip" href="mailto:contact@blakewonka.com">Mail</a></p>
+<p>or you can learn more on <a class="chip" href="https://www.figma.com/@blakewonka" target="_blank" rel="noopener">Figma</a>, <a class="chip" href="https://linkedin.com/in/blakewonka" target="_blank" rel="noopener">LinkedIn</a>, and <a class="chip" href="https://instagram.com/blakewonka" target="_blank" rel="noopener">Instagram</a>.</p>
+</div>
 </section>
 </main>
 <script>
@@ -124,7 +139,12 @@ html.js-intro.intro-done body{overflow:auto}
     intro.classList.add('hide');
     intro.addEventListener('transitionend',function(){intro.classList.add('gone')},{once:true});
   }
-  setTimeout(reveal, reduced?0:900);
+  localStorage.setItem('introShownAt', Date.now());
+  if(document.documentElement.classList.contains('intro-skip')){
+    reveal();
+  }else{
+    setTimeout(reveal, reduced?0:900);
+  }
 })();
 </script>
 </body>
